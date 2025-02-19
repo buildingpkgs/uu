@@ -48,7 +48,7 @@ build() {
 
   cd "$_pkgsrc"
   make PROFILE=release
-  cargo build --frozen --release --all-features
+  cargo build --frozen --release
 }
 
 package() {
