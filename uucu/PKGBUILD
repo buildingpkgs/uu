@@ -2,12 +2,6 @@
 # Contributor: Sam <dev at samarthj dot com>
 # Contributor: Árni Dagur <arnidg@protonmail.ch>
 
-: ${CARGO_HOME:=$SRCDEST/cargo-home}
-: ${CARGO_TARGET_DIR:=target}
-: ${RUSTUP_TOOLCHAIN:=stable}
-
-export CARGO_HOME CARGO_TARGET_DIR RUSTUP_TOOLCHAIN
-
 pkgname="uutils-coreutils-git"
 pkgver=0.0.27.r279.gdb40287
 pkgrel=1
@@ -53,17 +47,17 @@ build() {
 
   cd "$_pkgsrc"
   make PROFILE=release
+  cargo build --frozen --release --all-features
 }
 
 package() {
   cd "$_pkgsrc"
-
-   make install \
-    DESTDIR="$pkgdir" \
-    PREFIX=/usr \
-    MANDIR=/share/man/man1 \
-    PROFILE=release
-    MULTICALL=y
+  
+      find target/release \
+        -maxdepth 1 \
+        -executable \
+        -type f \
+        -exec install -Dm0755 -t "$pkgdir/usr/bin/" {} +
     
   install -Dm644 LICENSE -t "$pkgdir/usr/share/licenses/$pkgname/"
 }
