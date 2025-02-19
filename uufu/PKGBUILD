@@ -34,13 +34,6 @@ pkgver() {
   printf "%s.r%s.g%s" "$_tag" "$_rev" "$_hash" | sed 's/^v//'
 }
 
-check() {
-  cd "findutils"
-
-  #cargo test \
-  #  --frozen
-}
-
 package() {
   cd "findutils"
 
