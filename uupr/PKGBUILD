@@ -34,7 +34,7 @@ pkgver() {
 package() {
   cd "procps"
 
-    cargo build --frozen --release --all-features
+    cargo build --frozen --release
     find target/release \
         -maxdepth 1 \
         -executable \
