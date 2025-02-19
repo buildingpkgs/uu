@@ -19,6 +19,7 @@ provides=("findutils")
 conflicts=("findutils")
 source=("git+https://github.com/uutils/findutils.git")
 sha256sums=('SKIP')
+options=(!debug)
 
 prepare() {
   cd "findutils"
@@ -47,6 +48,6 @@ package() {
     --no-track \
     --root "$pkgdir/usr" \
     --path .
-
+  rm "$pkgdir"/testing-commandline
   install -Dm644 "LICENSE" -t "$pkgdir/usr/share/licenses/uutils-findutils"
 }
