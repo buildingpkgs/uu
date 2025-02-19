@@ -38,8 +38,8 @@ pkgver() {
 }
 
 prepare() {
-  cd "$_pkgsrc"
-  sed 's|"bin"|"builduser"|g' -i tests/by-util/test_{chgrp,chown}.rs
+    export RUSTUP_TOOLCHAIN=stable
+    cargo fetch --locked --target "$(rustc -vV | sed -n 's/host: //p')"
 }
 
 build() {
