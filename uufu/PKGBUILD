@@ -1,5 +1,11 @@
 # Maintainer: Chocobo1 <chocobo1 AT archlinux DOT net>
 
+: ${CARGO_HOME:=$SRCDEST/cargo-home}
+: ${CARGO_TARGET_DIR:=target}
+: ${RUSTUP_TOOLCHAIN:=stable}
+
+export CARGO_HOME CARGO_TARGET_DIR RUSTUP_TOOLCHAIN
+
 pkgname=uutils-findutils-git
 pkgver=0.7.0.r17.g50b7ec6
 pkgrel=1
@@ -13,7 +19,6 @@ provides=("findutils")
 conflicts=("findutils")
 source=("git+https://github.com/uutils/findutils.git")
 sha256sums=('SKIP')
-
 
 prepare() {
   cd "findutils"
