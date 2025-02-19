@@ -63,6 +63,7 @@ package() {
     PREFIX=/usr \
     MANDIR=/share/man/man1 \
     PROFILE=release
+    MULTICALL=y
     
   install -Dm644 LICENSE -t "$pkgdir/usr/share/licenses/$pkgname/"
 }
