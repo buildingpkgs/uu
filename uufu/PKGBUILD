@@ -42,7 +42,7 @@ pkgver() {
 package() {
   cd "findutils"
 
-  cargo build --frozen --release --all-features
+  cargo build --frozen --release
   install -Dm0755 -t "$pkgdir/usr/bin/" "target/release/find"
   install -Dm0755 -t "$pkgdir/usr/bin/" "target/release/xargs"
   
