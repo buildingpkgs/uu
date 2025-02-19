@@ -24,10 +24,9 @@ options=(!debug)
 prepare() {
   cd "findutils"
 
-  if [ ! -f "Cargo.lock" ]; then
-    cargo update
-  fi
-  cargo fetch
+    export RUSTUP_TOOLCHAIN=stable
+    cargo fetch --locked --target "$(rustc -vV | sed -n 's/host: //p')"
+
   export RUSTONIG_DYNAMIC_LIBONIG=1
 }
 
