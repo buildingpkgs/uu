@@ -57,10 +57,12 @@ build() {
 
 package() {
   cd "$_pkgsrc"
-  make install \
-    DESTDIR="$pkgdir" \
-    PREFIX=/usr \
-    MANDIR=/share/man/man1 \
-    PROFILE=release
+
+  cargo install \
+    --locked \
+    --no-track \
+    --root "$pkgdir/usr" \
+    --path .
+    
   install -Dm644 LICENSE -t "$pkgdir/usr/share/licenses/$pkgname/"
 }
