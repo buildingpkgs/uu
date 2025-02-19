@@ -43,11 +43,9 @@ pkgver() {
 package() {
   cd "findutils"
 
-  cargo install \
-    --locked \
-    --no-track \
-    --root "$pkgdir/usr" \
-    --path .
-  rm "$pkgdir"/usr/bin/testing-commandline
+  cargo build --frozen --release --all-features
+  install -Dm0755 -t "$pkgdir/usr/bin/" "target/release/find"
+  install -Dm0755 -t "$pkgdir/usr/bin/" "target/release/xargs"
+  
   install -Dm644 "LICENSE" -t "$pkgdir/usr/share/licenses/uutils-findutils"
 }
