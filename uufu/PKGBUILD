@@ -22,6 +22,7 @@ prepare() {
     cargo update
   fi
   cargo fetch
+  export RUSTONIG_DYNAMIC_LIBONIG=1
 }
 
 pkgver() {
