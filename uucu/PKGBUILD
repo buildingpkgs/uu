@@ -33,7 +33,7 @@ options=('!lto')
 provides=("coreutils")
 conflicts=("coreutils")
 
-_pkgsrc="$_pkgname"
+_pkgsrc="$pkgname"
 source=("$_pkgsrc"::"git+https://github.com/uutils/coreutils.git")
 sha256sums=('SKIP')
 
