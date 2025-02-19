@@ -48,6 +48,6 @@ package() {
     --no-track \
     --root "$pkgdir/usr" \
     --path .
-  rm "$pkgdir"/testing-commandline
+  rm "$pkgdir"/usr/bin/testing-commandline
   install -Dm644 "LICENSE" -t "$pkgdir/usr/share/licenses/uutils-findutils"
 }
