@@ -9,8 +9,8 @@ url="https://github.com/uutils/procps"
 license=('MIT')
 depends=('gcc-libs')
 makedepends=('git' 'cargo')
-provides=("procps")
-conflicts=('procps')
+provides=('procps' 'procps-ng')
+conflicts=('procps' 'procps-ng')
 source=("git+https://github.com/uutils/procps.git")
 sha256sums=('SKIP')
 
