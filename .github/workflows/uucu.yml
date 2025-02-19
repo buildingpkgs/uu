@@ -10,7 +10,7 @@ jobs:
       - name: Compile
         run: |
           pacman -Syu --noconfirm base-devel
-          useradd user -G wheel && echo "user ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+          useradd user -mG wheel && echo "user ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
           chown user -R .
           cd uucu
           su user -c "yes|PKGDEST=/tmp/uucu makepkg --noconfirm -s"
