@@ -22,7 +22,7 @@ makedepends=(
   'rust'
 )
 
-options=('!lto')
+options=(!lto !debug)
 
 provides=("coreutils")
 conflicts=("coreutils")
